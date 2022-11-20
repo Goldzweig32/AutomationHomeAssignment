@@ -1,0 +1,14 @@
+Q1
+SELECT "PlayerId",MAX("Score") FROM public."Game_tbl"
+GROUP By "PlayerId"
+
+Q2    
+SELECT public."PlayerId"."PlayerId","PlayerName" FROM public."PlayerId"
+LEFT JOIN public."Game_tbl"
+ON public."Game_tbl"."PlayerId" = public."PlayerId"."PlayerId"
+WHERE public."Game_tbl"."PlayerId" IS null
+
+Q3        
+SELECT "PlayerId",SUM("Score") FROM public."Game_tbl"
+GROUP By "PlayerId"
+HAVING SUM("Score") > 100
